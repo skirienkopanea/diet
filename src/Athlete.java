@@ -8,13 +8,15 @@ public class Athlete {
     private boolean isMale;
     private int weight;
     private int activityLevel;
+    private int calIntake;
 
-    public Athlete(String name, int age, boolean isMale, int weight, int activityLevel) {
+    public Athlete(String name, int age, boolean isMale, int weight, int activityLevel, int calIntake) {
         this.name = name;
         this.age = age;
         this.isMale = isMale;
         this.weight = weight;
         this.activityLevel = activityLevel;
+        this.calIntake = calIntake;
     }
 
     public String getName() {
@@ -57,6 +59,10 @@ public class Athlete {
         this.activityLevel = activityLevel;
     }
 
+    public static void printColumnHeaders(){
+        System.out.println("Name          Age     Sex Weight     Activity      Calories");
+        System.out.println("-------------|-------|---|----------|-------------|--------");
+    }
     @Override
     public String toString() {
         String displayName = name.substring(0, Math.min(name.length(), 10));
@@ -70,21 +76,21 @@ public class Athlete {
         String displayActivityLevel;
         switch (activityLevel){
             case 1:
-                displayActivityLevel = "Sedentary";
+                displayActivityLevel = "Sedentary  ";
                 break;
             case 2:
-                displayActivityLevel = "Moderate";
+                displayActivityLevel = "Moderate   ";
                 break;
             case 3:
-                displayActivityLevel = "Active";
+                displayActivityLevel = "Active     ";
                 break;
             case 4:
                 displayActivityLevel = "Very Active";
                 break;
             default:
-                displayActivityLevel = "Unknown";
+                displayActivityLevel = "Unknown    ";
         }
-        return displayName + " | " + age + " | " + (isMale ? "M" : "F") + " | " + weight + " kg\t" + " | " + displayActivityLevel;
+        return displayName + " | " + age + "\t | " + (isMale ? "M" : "F") + " | " + weight + "\tkg " + " | " + displayActivityLevel + " | " + calIntake;
     }
 }
 

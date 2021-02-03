@@ -1,7 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,8 +19,7 @@ public class Catalog {
     }
 
     public void showAthletes() {
-        System.out.println("Name          Age  Sex Weight     Activity");
-        System.out.println("-------------|----|---|----------|--------");
+        Athlete.printColumnHeaders();
         for (Athlete athlete : athletes) {
             System.out.println(athlete);
         }
@@ -48,6 +47,7 @@ public class Catalog {
         String choice;
         do {
             System.out.println("""
+                    Choose what to do next:
                     1 – Add an athlete
                     2 – Edit an athlete
                     3 – Remove an athlete
@@ -56,15 +56,15 @@ public class Catalog {
             choice = input.next();
             switch (choice) {
                 case "1":
-                    System.out.println(1);
+                    addAthlete(input);
                     return;
 
                 case "2":
-                    System.out.println(2);
+                    editAthlete(input);
                     return;
 
                 case "3":
-                    System.out.println(3);
+                    removeAthlete(input);
                     return;
 
                 case "4":
@@ -75,20 +75,24 @@ public class Catalog {
         } while (true);
     }
 
-    public void readAthletes(){
+    public void readAthletes() {
         Scanner sc;
         try {
             sc = new Scanner(new File("src/athletes.csv"));
             sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
             sc.nextLine(); //skip column names
             while (sc.hasNextLine()) {
-                String name = sc.next();
-                int age = Integer.parseInt(sc.next());
-                boolean isMale = sc.next().equals("M");
-                int weight = Integer.parseInt(sc.next());
-                int activityLevel = Integer.parseInt(sc.next());
-
-                this.athletes.add(new Athlete(name, age, isMale, weight, activityLevel));
+                if (sc.hasNext()) { //excel automatically creates an empty line at the end
+                    String name = sc.next();
+                    int age = Integer.parseInt(sc.next());
+                    boolean isMale = sc.next().equals("M");
+                    int weight = Integer.parseInt(sc.next());
+                    int activityLevel = Integer.parseInt(sc.next());
+                    int calIntake = Integer.parseInt(sc.next());
+                    athletes.add(new Athlete(name, age, isMale, weight, activityLevel, calIntake));
+                } else {
+                    break;
+                }
             }
             System.out.println(athletes.size() + " athlete profiles loaded");
 
@@ -96,17 +100,110 @@ public class Catalog {
             System.out.println("Athletes file not found, 0 athletes loaded." +
                     "\nA new file athletes.csv will be saved before closing the program");
         }
+    }
+
+    public void addAthlete(Scanner input) {
+        System.out.println("Enter athlete name");
+        String name = input.next();
+
+        System.out.println("Enter athlete age");
+        int age = input.nextInt();
+
+        System.out.println("Enter athlete sex (M/F)");
+        boolean isMale = (input.next().toUpperCase().equals("M"));
+
+        System.out.println("Enter athlete weight in kg");
+        int weight = input.nextInt();
+
+        System.out.println("Enter athlete activity level number (1 = Sedentary, 2 = Moderate, 3 = Active, 4 = Very Active)");
+        int activityLevel = input.nextInt();
+
+        System.out.println("Enter athlete caloric intake");
+        int calIntake = input.nextInt();
+
+        athletes.add(new Athlete(name, age, isMale, weight, activityLevel, calIntake));
+
+        Athlete.printColumnHeaders();
+        System.out.println(athletes.get(athletes.size() - 1) + "\nSuccessfully added");
+    }
+
+    public void editAthlete(Scanner input) {
+        System.out.println("Enter athlete name");
+        String name = input.next();
+
+        int athleteID = -1;
+        int i = 0;
+        for (Athlete athlete : athletes) {
+            if (athlete.getName().equals(name)) {
+                athleteID = i;
+            }
+            i++;
+        }
+
+        if (athleteID >= 0) {
+            Athlete.printColumnHeaders();
+            System.out.println(athletes.get(athleteID));
+
+            System.out.println("Enter attribute to edit as specified by the column header");
+
+            String selection = input.next();
+            boolean edited = false;
+
+            switch (selection) {
+                case "Name":
+                    System.out.println("Enter new name");
+                    athletes.get(athleteID).setName(input.next());
+                    edited = true;
+                default:
+                    if (edited) {
+                        Athlete.printColumnHeaders();
+                        System.out.println(athletes.get(athleteID));
+                        System.out.println("Successfully edited");
+                    } else {
+                        System.out.println("Attribute not fond");
+                    }
+            }
+        } else {
+            System.out.println("Athlete not found");
+        }
+    }
+
+    public void removeAthlete(Scanner input) {
+        System.out.println("Enter athlete name");
+        String name = input.next();
+
+        int athleteID = -1;
+        int i = 0;
+        for (Athlete athlete : athletes) {
+            if (athlete.getName().equals(name)) {
+                athleteID = i;
+            }
+            i++;
+        }
+
+        if (athleteID >= 0) {
+            Athlete.printColumnHeaders();
+            System.out.println(athletes.get(athleteID) + "\nConfirm removal (Y/N)?");
+
+            if (input.next().equalsIgnoreCase("Y")) {
+                athletes.remove(athleteID);
+                System.out.println("Athlete removed");
+            }
+            return;
+        } else {
+            System.out.println("Athlete not found");
+        }
+    }
+
+    public void readDietPlans() {
 
     }
 
-
-    public void readDietPlans(){
-
-    }
-    public void readMeals(){
+    public void readMeals() {
 
     }
-    public void readFoods(){
+
+    public void readFoods() {
 
     }
 
