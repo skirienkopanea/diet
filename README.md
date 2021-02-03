@@ -92,6 +92,6 @@ Also contains:
 ### Other
 Does not contain extra fields but allows you to initialise a new food object.
 
-The methods of the classes are mostly getters, setters, equals, to string, simple totals calculations, and input validations. Needless to say, class atributes are almost always private and the methods public (few are static, which regard the whole class rather than a specific object).
+The methods of the classes are mostly getters, setters, equals, to string, simple totals calculations, and input validations. Needless to say, class atributes are almost always private and the methods public (some are static, which regard the whole class rather than a specific object).
 * The app allows you to see, add, edit and remove athletes from a csv file.
 * Same operations for diet plans, meals, and foods.
