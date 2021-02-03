@@ -59,6 +59,16 @@ public class Athlete {
         this.activityLevel = activityLevel;
     }
 
+    public int getCalIntake() {
+        return calIntake;
+    }
+
+    public void setCalIntake(int calIntake) {
+        this.calIntake = calIntake;
+    }
+
+    //Reason I have it here in the athlete class as static and not in catalog is because I want to keep
+    //the column headers close to the actual attributes of the athletes and their toString method
     public static void printColumnHeaders(){
         System.out.println("Name          Age     Sex Weight     Activity      Calories");
         System.out.println("-------------|-------|---|----------|-------------|--------");
@@ -91,6 +101,11 @@ public class Athlete {
                 displayActivityLevel = "Unknown    ";
         }
         return displayName + " | " + age + "\t | " + (isMale ? "M" : "F") + " | " + weight + "\tkg " + " | " + displayActivityLevel + " | " + calIntake;
+    }
+
+    public String toCsv(){
+        return name + "," + age + "," + (isMale ? "M" : "F") + "," + weight + "," + activityLevel + "," + calIntake + "\r\n";
+
     }
 }
 

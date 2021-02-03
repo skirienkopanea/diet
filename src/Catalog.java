@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -51,8 +52,7 @@ public class Catalog {
                     1 – Add an athlete
                     2 – Edit an athlete
                     3 – Remove an athlete
-                    4 – Back to main menu
-                    """);
+                    4 – Back to main menu""");
             choice = input.next();
             switch (choice) {
                 case "1":
@@ -118,7 +118,7 @@ public class Catalog {
         System.out.println("Enter athlete activity level number (1 = Sedentary, 2 = Moderate, 3 = Active, 4 = Very Active)");
         int activityLevel = input.nextInt();
 
-        System.out.println("Enter athlete caloric intake");
+        System.out.println("Enter athlete daily caloric intake");
         int calIntake = input.nextInt();
 
         athletes.add(new Athlete(name, age, isMale, weight, activityLevel, calIntake));
@@ -154,14 +154,39 @@ public class Catalog {
                     System.out.println("Enter new name");
                     athletes.get(athleteID).setName(input.next());
                     edited = true;
+                    break;
+                case "Age":
+                    System.out.println("Enter new age");
+                    athletes.get(athleteID).setAge(input.nextInt());
+                    edited = true;
+                    break;
+                case "Sex":
+                    System.out.println("Is the athlete a male (Y/N)?");
+                    athletes.get(athleteID).setMale(input.next().equalsIgnoreCase("Y"));
+                    edited = true;
+                    break;
+                case "Weight":
+                    System.out.println("Enter new weight in kg");
+                    athletes.get(athleteID).setWeight(input.nextInt());
+                    edited = true;
+                    break;
+                case "Activity":
+                    System.out.println("Enter new activity level number (1 = Sedentary, 2 = Moderate, 3 = Active, 4 = Very Active)");
+                    athletes.get(athleteID).setActivityLevel(input.nextInt());
+                    edited = true;
+                    break;
+                case "Calories":
+                    System.out.println("Enter new daily caloric intake");
+                    athletes.get(athleteID).setCalIntake(input.nextInt());
+                    edited = true;
+                    break;
                 default:
-                    if (edited) {
-                        Athlete.printColumnHeaders();
-                        System.out.println(athletes.get(athleteID));
-                        System.out.println("Successfully edited");
-                    } else {
-                        System.out.println("Attribute not fond");
-                    }
+                    System.out.println("Attribute not fond");
+            }
+            if (edited) {
+                System.out.println("Athlete data updated:");
+                Athlete.printColumnHeaders();
+                System.out.println(athletes.get(athleteID));
             }
         } else {
             System.out.println("Athlete not found");
@@ -195,6 +220,21 @@ public class Catalog {
         }
     }
 
+    public boolean writeAthletes(Scanner input){
+        try {
+            PrintWriter writer = new PrintWriter("src/athletes.csv");
+            StringBuilder file = new StringBuilder("name,age,sex,weight,activity,calories\r\n");
+            athletes.stream().forEach(athlete -> file.append(athlete.toCsv()));
+            writer.print(file);
+            writer.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            System.out.println("Oops... athletes file could not be saved. Try to close other applications using the file.");
+            System.out.println("Do you want to exit without saving changes (Y/N)?");
+            return input.next().equalsIgnoreCase("Y");
+        }
+    }
+
     public void readDietPlans() {
 
     }
@@ -207,8 +247,8 @@ public class Catalog {
 
     }
 
-    public void save() {
-
+    public boolean save(Scanner input) {
+        return writeAthletes(input);
     }
 }
 

@@ -36,8 +36,11 @@ public class Main {
                     break;
 
                 case "5":
-                    catalog.save(); //update files before closing app
-                    return;
+                    if (catalog.save(input)) {
+                        return; //saved files and close or not saved and close without saving
+                    } else {
+                        break; //not saved and do not close
+                    }
                 default:
                     System.out.println("Option unknown");
             }
@@ -51,7 +54,6 @@ public class Main {
                 2 – Show diet plans
                 3 – Show meals
                 4 – Show foods
-                5 – Stop program
-                """);
+                5 – Stop program""");
     }
 }
