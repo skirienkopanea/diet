@@ -56,5 +56,35 @@ public class Athlete {
     public void setActivityLevel(int activityLevel) {
         this.activityLevel = activityLevel;
     }
+
+    @Override
+    public String toString() {
+        String displayName = name.substring(0, Math.min(name.length(), 10));
+        if (name.length() < 4) {
+            displayName += "\t\t\t";
+        } else if (name.length() < 8) {
+            displayName += "\t\t";
+        } else if (name.length() < 12) {
+            displayName += "\t";
+        }
+        String displayActivityLevel;
+        switch (activityLevel){
+            case 1:
+                displayActivityLevel = "Sedentary";
+                break;
+            case 2:
+                displayActivityLevel = "Moderate";
+                break;
+            case 3:
+                displayActivityLevel = "Active";
+                break;
+            case 4:
+                displayActivityLevel = "Very Active";
+                break;
+            default:
+                displayActivityLevel = "Unknown";
+        }
+        return displayName + " | " + age + " | " + (isMale ? "M" : "F") + " | " + weight + " kg\t" + " | " + displayActivityLevel;
+    }
 }
 

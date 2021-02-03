@@ -5,7 +5,7 @@ public class Main {
 
         Catalog catalog = new Catalog();
         catalog.readAthletes();
-        catalog.readAthletes();
+        catalog.readDietPlans();
         catalog.readFoods();
         catalog.readMeals();
 

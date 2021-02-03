@@ -19,6 +19,8 @@ public class Catalog {
     }
 
     public void showAthletes() {
+        System.out.println("     Name     Age  Sex   Weight   Activity");
+        System.out.println("-------------|----|---|----------|--------");
         for (Athlete athlete : athletes) {
             System.out.println(athlete);
         }
@@ -77,14 +79,14 @@ public class Catalog {
         Scanner sc;
         try {
             sc = new Scanner(new File("src/athletes.csv"));
-            sc.useDelimiter(",");
-
+            sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
+            sc.nextLine(); //skip column names
             while (sc.hasNextLine()) {
-                String name = (sc.hasNext()) ? sc.next() : "";
-                int age = (sc.hasNextInt()) ? sc.nextInt() : 0;
-                boolean isMale = (sc.hasNext("M"));
-                int weight = (sc.hasNextInt()) ? sc.nextInt() : 0;
-                int activityLevel = (sc.hasNextInt()) ? sc.nextInt() : 0;
+                String name = sc.next();
+                int age = Integer.parseInt(sc.next());
+                boolean isMale = sc.next().equals("M");
+                int weight = Integer.parseInt(sc.next());
+                int activityLevel = Integer.parseInt(sc.next());
 
                 this.athletes.add(new Athlete(name, age, isMale, weight, activityLevel));
             }
