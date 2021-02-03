@@ -1,6 +1,6 @@
 # Diet plan manager
 
-Java command line app to manage a catalog of athletes and their diet plans. The main purpose of this app was just for me
+Java command line app to manage a catalog of athletes and their diet plans (stored locally as csv files). The main purpose of this app was just for me
 to apply object-oriented programming principles and good practices.
 
 ## Athlete
@@ -95,5 +95,3 @@ Does not contain extra fields but allows you to initialise a new food object.
 The methods of the classes are mostly getters, setters, equals, to string, simple totals calculations, and input validations.
 * The app allows you to see, add, edit and remove athletes from a csv file.
 * Same operations for diet plans, meals, and foods.
-
-
