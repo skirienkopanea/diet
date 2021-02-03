@@ -93,5 +93,7 @@ Also contains:
 Does not contain extra fields but allows you to initialise a new food object.
 
 The methods of the classes are mostly getters, setters, equals, to string, simple totals calculations, and input validations.
+* The app allows you to see, add, edit and remove athletes from a csv file.
+* Same operations for diet plans, meals, and foods.
 
 
