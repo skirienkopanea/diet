@@ -19,7 +19,7 @@ public class Catalog {
     }
 
     public void showAthletes() {
-        System.out.println("     Name     Age  Sex   Weight   Activity");
+        System.out.println("Name          Age  Sex Weight     Activity");
         System.out.println("-------------|----|---|----------|--------");
         for (Athlete athlete : athletes) {
             System.out.println(athlete);

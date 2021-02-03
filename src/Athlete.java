@@ -64,7 +64,7 @@ public class Athlete {
             displayName += "\t\t\t";
         } else if (name.length() < 8) {
             displayName += "\t\t";
-        } else if (name.length() < 12) {
+        } else {
             displayName += "\t";
         }
         String displayActivityLevel;
