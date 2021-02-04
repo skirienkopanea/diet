@@ -5,7 +5,6 @@ public class Main {
 
         Catalog catalog = new Catalog();
         catalog.readAthletes();
-        catalog.readDietPlans();
         catalog.readFoods("diary");
         catalog.readFoods("beverages");
         catalog.readFoods("cereals");
@@ -15,6 +14,7 @@ public class Main {
         catalog.readFoods("other");
         System.out.println(catalog.getFoods().size() + " foods loaded");
         catalog.readMeals();
+        catalog.readDietPlans();
 
         Scanner input = new Scanner(System.in);
         String choice;
@@ -39,7 +39,7 @@ public class Main {
 
                 case "4":
                     catalog.showFoods();
-                    //catalog.foodMenu(input);
+                    catalog.foodMenu(input);
                     break;
 
                 case "5":
