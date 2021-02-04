@@ -6,7 +6,14 @@ public class Main {
         Catalog catalog = new Catalog();
         catalog.readAthletes();
         catalog.readDietPlans();
-        catalog.readFoods();
+        catalog.readFoods("diary");
+        catalog.readFoods("beverages");
+        catalog.readFoods("cereals");
+        catalog.readFoods("vegetables"); //includes fruits
+        catalog.readFoods("meats");
+        catalog.readFoods("fish");
+        catalog.readFoods("other");
+        System.out.println(catalog.getFoods().size() + " foods loaded");
         catalog.readMeals();
 
         Scanner input = new Scanner(System.in);

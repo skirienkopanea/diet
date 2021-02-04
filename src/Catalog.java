@@ -19,6 +19,22 @@ public class Catalog {
         this.foods = new ArrayList<>();
     }
 
+    public List<Food> getFoods() {
+        return foods;
+    }
+
+    public static String displayName(String name) {
+        String displayName = name.substring(0, Math.min(name.length(), 10));
+        if (name.length() < 4) {
+            displayName += "\t\t\t";
+        } else if (name.length() < 8) {
+            displayName += "\t\t";
+        } else {
+            displayName += "\t";
+        }
+        return displayName;
+    }
+
     public void showAthletes() {
         Athlete.printColumnHeaders();
         for (Athlete athlete : athletes) {
@@ -39,6 +55,7 @@ public class Catalog {
     }
 
     public void showFoods() {
+        Food.printColumnHeaders();
         for (Food food : foods) {
             System.out.println(food);
         }
@@ -220,7 +237,7 @@ public class Catalog {
         }
     }
 
-    public boolean writeAthletes(Scanner input){
+    public boolean writeAthletes(Scanner input) {
         try {
             PrintWriter writer = new PrintWriter("src/athletes.csv");
             StringBuilder file = new StringBuilder("name,age,sex,weight,activity,calories\r\n");
@@ -229,7 +246,7 @@ public class Catalog {
             writer.close();
             return true;
         } catch (FileNotFoundException e) {
-            System.out.println("Oops... athletes file could not be saved. Try to close other applications using the file.");
+            System.out.println("Oops... athletes file could not be saved. Close other applications using athletes.csv.");
             System.out.println("Do you want to exit without saving changes (Y/N)?");
             return input.next().equalsIgnoreCase("Y");
         }
@@ -243,12 +260,95 @@ public class Catalog {
 
     }
 
-    public void readFoods() {
+    public void readFoods(String foodType) {
+        Scanner sc;
+        try {
+            sc = new Scanner(new File("src/" + foodType + ".csv"));
+            sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
+            sc.nextLine(); //skip column names
+            while (sc.hasNextLine()) {
+                if (sc.hasNext()) { //excel automatically creates an empty line at the end
 
+                    String name = sc.next();
+                    int cals = Integer.parseInt(sc.next());
+                    int carbs = Integer.parseInt(sc.next());
+                    int fats = Integer.parseInt(sc.next());
+                    int proteins = Integer.parseInt(sc.next());
+                    String servings = sc.next();
+
+                    Boolean hasProperty = false;
+                    int extraProperty = -1;
+
+                    //Optional properties
+                    if (sc.hasNextBoolean()) { //boolean property goes first
+                        hasProperty = sc.nextBoolean();
+                    }
+                    if (sc.hasNextInt()){
+                        extraProperty = Integer.parseInt(sc.next());
+                    }
+
+                    Macronutrients macros = new Macronutrients(cals, carbs, fats, proteins);
+                    switch (foodType) {
+                        case "diary":
+                            foods.add(new Diary(name, macros, getServings(servings), hasProperty));
+                            break;
+                        case "beverages":
+                            foods.add(new Beverage(name, macros, getServings(servings), hasProperty, extraProperty));
+                            break;
+                        case "cereals":
+                            foods.add(new Cereal(name, macros, getServings(servings), hasProperty));
+                            break;
+                        case "meats":
+                            foods.add(new Meat(name, macros, getServings(servings), extraProperty));
+                            break;
+                        case "fish":
+                            foods.add(new Fish(name, macros, getServings(servings), hasProperty));
+                            break;
+                        case "vegetables":
+                            boolean feb = sc.nextBoolean();
+                            boolean mar = sc.nextBoolean();
+                            boolean apr = sc.nextBoolean();
+                            boolean may = sc.nextBoolean();
+                            boolean jun = sc.nextBoolean();
+                            boolean jul = sc.nextBoolean();
+                            boolean aug = sc.nextBoolean();
+                            boolean sep = sc.nextBoolean();
+                            boolean oct = sc.nextBoolean();
+                            boolean nov = sc.nextBoolean();
+                            boolean dec = sc.nextBoolean();
+
+                            foods.add(new Vegetable(name, macros, getServings(servings), hasProperty, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec));
+                            break;
+                        case "other":
+                            foods.add(new MiscFood(name, macros, getServings(servings)));
+                            break;
+                        default:
+                            //it will be caught by the catch
+                    }
+                } else {
+                    break;
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Error loading foods: " + e.getStackTrace());
+        }
+    }
+
+    public List<Serving> getServings(String text){
+        List<Serving> servings = new ArrayList<>();
+        Scanner sc = new Scanner(text);
+        sc.useDelimiter(";");
+        while(sc.hasNext()){
+            String pair = sc.next();
+            String servingSize = pair.substring(0,pair.indexOf("&"));
+            int grams = Integer.parseInt(pair.substring(pair.indexOf("&")+1));
+            servings.add(new Serving(servingSize,grams));
+        }
+        return servings;
     }
 
     public boolean save(Scanner input) {
-        return writeAthletes(input);
+        return writeAthletes(input); //AND AND AND...
     }
 }
 

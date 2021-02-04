@@ -67,22 +67,14 @@ public class Athlete {
         this.calIntake = calIntake;
     }
 
-    //Reason I have it here in the athlete class as static and not in catalog is because I want to keep
-    //the column headers close to the actual attributes of the athletes and their toString method
+    //Reason I have it here in the class as static and not in catalog is because I want to keep
+    //the column headers close to the actual attributes of the class and their toString method
     public static void printColumnHeaders(){
         System.out.println("Name          Age     Sex Weight     Activity      Calories");
         System.out.println("-------------|-------|---|----------|-------------|--------");
     }
     @Override
     public String toString() {
-        String displayName = name.substring(0, Math.min(name.length(), 10));
-        if (name.length() < 4) {
-            displayName += "\t\t\t";
-        } else if (name.length() < 8) {
-            displayName += "\t\t";
-        } else {
-            displayName += "\t";
-        }
         String displayActivityLevel;
         switch (activityLevel){
             case 1:
@@ -100,7 +92,7 @@ public class Athlete {
             default:
                 displayActivityLevel = "Unknown    ";
         }
-        return displayName + " | " + age + "\t | " + (isMale ? "M" : "F") + " | " + weight + "\tkg " + " | " + displayActivityLevel + " | " + calIntake;
+        return Catalog.displayName(name) + " | " + age + "\t | " + (isMale ? "M" : "F") + " | " + weight + "\tkg " + " | " + displayActivityLevel + " | " + calIntake;
     }
 
     public String toCsv(){
