@@ -2,7 +2,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -24,12 +23,15 @@ public class Catalog {
     }
 
     public static String displayName(String name) {
-        String displayName = name.substring(0, Math.min(name.length(), 10));
+        String displayName = name.substring(0, Math.min(name.length(), 16));
         if (name.length() < 4) {
-            displayName += "\t\t\t";
+            displayName += "\t\t\t\t";
         } else if (name.length() < 8) {
+            displayName += "\t\t\t";
+        } else if (name.length() < 12) {
             displayName += "\t\t";
-        } else {
+        }
+        else if (name.length() < 16) {
             displayName += "\t";
         }
         return displayName;
@@ -270,10 +272,10 @@ public class Catalog {
                 if (sc.hasNext()) { //excel automatically creates an empty line at the end
 
                     String name = sc.next();
-                    int cals = Integer.parseInt(sc.next());
-                    int carbs = Integer.parseInt(sc.next());
-                    int fats = Integer.parseInt(sc.next());
-                    int proteins = Integer.parseInt(sc.next());
+                    double cals = Double.parseDouble(sc.next());
+                    double carbs = Double.parseDouble(sc.next());
+                    double fats = Double.parseDouble(sc.next());
+                    double proteins = Double.parseDouble(sc.next());
                     String servings = sc.next();
 
                     Boolean hasProperty = false;
@@ -305,6 +307,7 @@ public class Catalog {
                             foods.add(new Fish(name, macros, getServings(servings), hasProperty));
                             break;
                         case "vegetables":
+                            //january is already retrieved as hasProperty
                             boolean feb = sc.nextBoolean();
                             boolean mar = sc.nextBoolean();
                             boolean apr = sc.nextBoolean();
@@ -323,14 +326,14 @@ public class Catalog {
                             foods.add(new MiscFood(name, macros, getServings(servings)));
                             break;
                         default:
-                            //it will be caught by the catch
+                            System.out.println("Unknown food type");
                     }
                 } else {
                     break;
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Error loading foods: " + e.getStackTrace());
+            System.out.println("Error loading " + foodType + ".csv (" + e.getStackTrace() +")");
         }
     }
 

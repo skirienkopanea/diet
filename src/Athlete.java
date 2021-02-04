@@ -70,8 +70,8 @@ public class Athlete {
     //Reason I have it here in the class as static and not in catalog is because I want to keep
     //the column headers close to the actual attributes of the class and their toString method
     public static void printColumnHeaders(){
-        System.out.println("Name          Age     Sex Weight     Activity      Calories");
-        System.out.println("-------------|-------|---|----------|-------------|--------");
+        System.out.println("Name              Age     Sex Weight     Activity      Calories");
+        System.out.println("-----------------|-------|---|----------|-------------|--------");
     }
     @Override
     public String toString() {

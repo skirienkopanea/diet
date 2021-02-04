@@ -1,24 +1,24 @@
 public class Macronutrients {
-    private int calories;
-    private int carbs;
-    private int fats;
-    private int proteins;
+    private double calories;
+    private double carbs;
+    private double fats;
+    private double proteins;
 
-    public Macronutrients(int calories, int carbs, int fats, int proteins) {
+    public Macronutrients(double calories, double carbs, double fats, double proteins) {
         this.calories = calories;
         this.carbs = carbs;
         this.fats = fats;
         this.proteins = proteins;
     }
 
-    public Macronutrients(int carbs, int fats, int proteins) {
+    public Macronutrients(double carbs, double fats, double proteins) {
         this.carbs = carbs;
         this.fats = fats;
         this.proteins = proteins;
         this.calories = 4 * carbs + 4 * proteins + 9 * fats;
     }
 
-    public int getCalories() {
+    public double getCalories() {
         return calories;
     }
 
@@ -26,7 +26,7 @@ public class Macronutrients {
         this.calories = calories;
     }
 
-    public int getCarbs() {
+    public double getCarbs() {
         return carbs;
     }
 
@@ -34,7 +34,7 @@ public class Macronutrients {
         this.carbs = carbs;
     }
 
-    public int getFats() {
+    public double getFats() {
         return fats;
     }
 
@@ -42,7 +42,7 @@ public class Macronutrients {
         this.fats = fats;
     }
 
-    public int getProteins() {
+    public double getProteins() {
         return proteins;
     }
 
