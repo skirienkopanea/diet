@@ -97,7 +97,7 @@ public class Catalog {
     public void readAthletes() {
         Scanner sc;
         try {
-            sc = new Scanner(new File("src/athletes.csv"));
+            sc = new Scanner(new File("src/data/athletes.csv"));
             sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
             sc.nextLine(); //skip column names
             while (sc.hasNextLine()) {
@@ -116,8 +116,8 @@ public class Catalog {
             System.out.println(athletes.size() + " athlete profiles loaded");
 
         } catch (FileNotFoundException e) {
-            System.out.println("Athletes file not found, 0 athletes loaded." +
-                    "\nA new file athletes.csv will be saved before closing the program");
+            System.out.println("Error loading data/athletes.csv (" + e.getStackTrace() +
+                    ")\n0 athletes loaded");
         }
     }
 
@@ -265,7 +265,7 @@ public class Catalog {
     public void readFoods(String foodType) {
         Scanner sc;
         try {
-            sc = new Scanner(new File("src/" + foodType + ".csv"));
+            sc = new Scanner(new File("src/data/" + foodType + ".csv"));
             sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
             sc.nextLine(); //skip column names
             while (sc.hasNextLine()) {
@@ -333,7 +333,7 @@ public class Catalog {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Error loading " + foodType + ".csv (" + e.getStackTrace() +")");
+            System.out.println("Error loading data/" + foodType + ".csv (" + e.getStackTrace() +")");
         }
     }
 
