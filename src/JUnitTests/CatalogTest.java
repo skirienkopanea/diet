@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CatalogTest {
+public class CatalogTest {
     String servings;
     @BeforeEach
     void setUp() {
@@ -12,7 +12,6 @@ class CatalogTest {
 
     @Test
     void getServings() {
-
         Serving serving = new Serving("1 glass",250);
         assertEquals("1 glass&250;1 bottle&1000",servings);
     }
