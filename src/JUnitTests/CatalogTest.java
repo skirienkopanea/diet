@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CatalogTest {
+class CatalogTest {
     String servings;
     @BeforeEach
     void setUp() {

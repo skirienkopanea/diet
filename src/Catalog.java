@@ -12,15 +12,32 @@ public class Catalog {
     private List<Meal> meals;
     private List<Food> foods;
 
+    enum FoodType {
+        DIARY,
+        BEVERAGES,
+        CEREALS,
+        VEGETABLES,
+        MEATS,
+        FISH,
+        OTHER
+    }
+
+    private List<FoodType> foodTypes;
+
     public Catalog() {
         this.athletes = new ArrayList<>();
         this.dietPlans = new ArrayList<>();
         this.meals = new ArrayList<>();
         this.foods = new ArrayList<>();
-    }
 
-    public List<Food> getFoods() {
-        return foods;
+        this.foodTypes = new ArrayList<>();
+        foodTypes.add(FoodType.DIARY);
+        foodTypes.add(FoodType.BEVERAGES);
+        foodTypes.add(FoodType.CEREALS);
+        foodTypes.add(FoodType.VEGETABLES);
+        foodTypes.add(FoodType.MEATS);
+        foodTypes.add(FoodType.FISH);
+        foodTypes.add(FoodType.OTHER);
     }
 
     public static String displayName(String name) {
@@ -150,84 +167,110 @@ public class Catalog {
             System.out.println(athletes.size() + " athlete profiles loaded");
 
         } catch (FileNotFoundException e) {
-            System.out.println("Error loading data/athletes.csv (" + e.getStackTrace() +
+            System.out.println("Error loading ATHLETES. " + e.getMessage() +
                     ")\n0 athletes loaded");
         }
     }
-
-    public void readFoods(String foodType) {
-        Scanner sc;
-        try {
-            sc = new Scanner(new File("src/data/" + foodType + ".csv"));
-            sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
-            sc.nextLine(); //skip column names
-            while (sc.hasNextLine()) {
-                if (sc.hasNext()) { //excel automatically creates an empty line at the end
-
-                    String name = sc.next();
-                    double calories = Double.parseDouble(sc.next());
-                    double carbs = Double.parseDouble(sc.next());
-                    double fats = Double.parseDouble(sc.next());
-                    double proteins = Double.parseDouble(sc.next());
-                    String servings = sc.next();
-
-                    Boolean hasProperty = false;
-                    int extraProperty = -1;
-
-                    //Optional properties
-                    if (sc.hasNextBoolean()) { //boolean property goes first
-                        hasProperty = sc.nextBoolean();
-                    }
-                    if (sc.hasNextInt()) {
-                        extraProperty = Integer.parseInt(sc.next());
-                    }
-
-                    Macronutrients macros = new Macronutrients(calories, carbs, fats, proteins);
-                    switch (foodType) {
-                        case "diary":
-                            foods.add(new Diary(name, macros, getServings(servings), hasProperty));
-                            break;
-                        case "beverages":
-                            foods.add(new Beverage(name, macros, getServings(servings), hasProperty, extraProperty));
-                            break;
-                        case "cereals":
-                            foods.add(new Cereal(name, macros, getServings(servings), hasProperty));
-                            break;
-                        case "meats":
-                            foods.add(new Meat(name, macros, getServings(servings), extraProperty));
-                            break;
-                        case "fish":
-                            foods.add(new Fish(name, macros, getServings(servings), hasProperty));
-                            break;
-                        case "vegetables":
-                            //january is already retrieved as hasProperty
-                            boolean feb = sc.nextBoolean();
-                            boolean mar = sc.nextBoolean();
-                            boolean apr = sc.nextBoolean();
-                            boolean may = sc.nextBoolean();
-                            boolean jun = sc.nextBoolean();
-                            boolean jul = sc.nextBoolean();
-                            boolean aug = sc.nextBoolean();
-                            boolean sep = sc.nextBoolean();
-                            boolean oct = sc.nextBoolean();
-                            boolean nov = sc.nextBoolean();
-                            boolean dec = sc.nextBoolean();
-
-                            foods.add(new Vegetable(name, macros, getServings(servings), hasProperty, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec));
-                            break;
-                        case "other":
-                            foods.add(new MiscFood(name, macros, getServings(servings)));
-                            break;
-                        default:
-                            System.out.println("Unknown food type");
-                    }
-                } else {
+    public void readFoods() {
+        String file;
+        for (FoodType foodType : foodTypes) {
+            switch (foodType) {
+                case BEVERAGES:
+                    file = "beverages.csv";
                     break;
-                }
+                case CEREALS:
+                    file = "cereals.csv"; //includes nuts
+                    break;
+                case DIARY:
+                    file = "diary.csv";
+                    break;
+                case FISH:
+                    file = "fish.csv";
+                    break;
+                case MEATS:
+                    file = "meats.csv"; //includes eggs
+                    break;
+                case VEGETABLES:
+                    file = "vegetables.csv"; //includes fruits
+                    break;
+                default:
+                    file = "other.csv";
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("Error loading data/" + foodType + ".csv (" + e.getStackTrace() + ")");
+
+            Scanner sc;
+            try {
+                sc = new Scanner(new File("src/data/" + file));
+                sc.useDelimiter(",|\r\n"); //Java new line regex for windows csv...
+                sc.nextLine(); //skip column names
+                while (sc.hasNextLine()) {
+                    if (sc.hasNext()) { //excel automatically creates an empty line at the end
+
+                        String name = sc.next();
+                        double calories = Double.parseDouble(sc.next());
+                        double carbs = Double.parseDouble(sc.next());
+                        double fats = Double.parseDouble(sc.next());
+                        double proteins = Double.parseDouble(sc.next());
+                        String servings = sc.next();
+
+                        Boolean hasProperty = false;
+                        int extraProperty = -1;
+
+                        //Optional properties
+                        if (sc.hasNextBoolean()) { //boolean property goes first
+                            hasProperty = sc.nextBoolean();
+                        }
+                        if (sc.hasNextInt()) {
+                            extraProperty = Integer.parseInt(sc.next());
+                        }
+
+                        Macronutrients macros = new Macronutrients(calories, carbs, fats, proteins);
+                        switch (foodType) {
+                            case DIARY:
+                                foods.add(new Diary(name, macros, getServings(servings), hasProperty));
+                                break;
+                            case BEVERAGES:
+                                foods.add(new Beverage(name, macros, getServings(servings), hasProperty, extraProperty));
+                                break;
+                            case CEREALS:
+                                foods.add(new Cereal(name, macros, getServings(servings), hasProperty));
+                                break;
+                            case MEATS:
+                                foods.add(new Meat(name, macros, getServings(servings), extraProperty));
+                                break;
+                            case FISH:
+                                foods.add(new Fish(name, macros, getServings(servings), hasProperty));
+                                break;
+                            case VEGETABLES:
+                                //january is already retrieved as hasProperty
+                                boolean feb = sc.nextBoolean();
+                                boolean mar = sc.nextBoolean();
+                                boolean apr = sc.nextBoolean();
+                                boolean may = sc.nextBoolean();
+                                boolean jun = sc.nextBoolean();
+                                boolean jul = sc.nextBoolean();
+                                boolean aug = sc.nextBoolean();
+                                boolean sep = sc.nextBoolean();
+                                boolean oct = sc.nextBoolean();
+                                boolean nov = sc.nextBoolean();
+                                boolean dec = sc.nextBoolean();
+
+                                foods.add(new Vegetable(name, macros, getServings(servings), hasProperty, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec));
+                                break;
+                            case OTHER:
+                                foods.add(new MiscFood(name, macros, getServings(servings)));
+                                break;
+                            default:
+                                System.out.println("Unknown food type");
+                        }
+                    } else {
+                        break;
+                    }
+                }
+            } catch (FileNotFoundException e) {
+                System.out.println("Error loading " + foodType + ". " + e.getMessage());
+            }
         }
+        System.out.println(foods.size() + " foods loaded");
     }
 
     public void readMeals() {
@@ -629,6 +672,23 @@ public class Catalog {
         }
     }
 
+    public boolean writeFoods(Scanner input) {
+
+
+        try {
+            PrintWriter writer = new PrintWriter("src/athletes.csv");
+            StringBuilder file = new StringBuilder("name,age,sex,weight,activity,calories\r\n");
+            athletes.stream().forEach(athlete -> file.append(athlete.toCsv()));
+            writer.print(file);
+            writer.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            System.out.println("Oops... athletes file could not be saved. Close other applications using athletes.csv.");
+            System.out.println("Do you want to exit without saving changes (Y/N)?");
+            return input.next().equalsIgnoreCase("Y");
+        }
+    }
+
 
     public List<Serving> getServings(String text) {
         List<Serving> servings = new ArrayList<>();
@@ -644,7 +704,7 @@ public class Catalog {
     }
 
     public boolean save(Scanner input) {
-        return writeAthletes(input); //AND AND AND...
+        return writeAthletes(input) && writeFoods(input); //AND AND AND...
     }
 }
 
