@@ -6,6 +6,11 @@ public class MiscFood extends Food{
         super(name, macros, servings);
     }
 
+    @Override
+    public String getType() {
+        return "other";
+    }
+
     public String toCsv(){
         return super.toCsv() + "\r\n";
     }

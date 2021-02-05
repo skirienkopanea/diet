@@ -8,6 +8,19 @@ public class Fish extends Food{
         this.isSustainable = hasGluten;
     }
 
+    @Override
+    public String getType() {
+        return "fish";
+    }
+
+    public boolean isSustainable() {
+        return isSustainable;
+    }
+
+    public void setSustainable(boolean sustainable) {
+        isSustainable = sustainable;
+    }
+
     public String toCsv(){
         return super.toCsv() + isSustainable + "\r\n";
     }

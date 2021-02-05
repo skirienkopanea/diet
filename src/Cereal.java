@@ -8,6 +8,19 @@ public class Cereal extends Food{
         this.hasGluten = hasGluten;
     }
 
+    @Override
+    public String getType() {
+        return "cereals";
+    }
+
+    public boolean isHasGluten() {
+        return hasGluten;
+    }
+
+    public void setHasGluten(boolean hasGluten) {
+        this.hasGluten = hasGluten;
+    }
+
     public String toCsv(){
         return super.toCsv() + hasGluten + "\r\n";
     }

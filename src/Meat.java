@@ -8,6 +8,19 @@ public class Meat extends Food{
         this.lifeQuality = hasGluten;
     }
 
+    @Override
+    public String getType() {
+        return "meats";
+    }
+
+    public int getLifeQuality() {
+        return lifeQuality;
+    }
+
+    public void setLifeQuality(int lifeQuality) {
+        this.lifeQuality = lifeQuality;
+    }
+
     public String toCsv(){
         return super.toCsv() + lifeQuality + "\r\n";
     }

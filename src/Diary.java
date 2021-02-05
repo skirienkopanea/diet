@@ -8,6 +8,19 @@ public class Diary extends Food{
         this.hasLactose = hasLactose;
     }
 
+    @Override
+    public String getType() {
+        return "diary";
+    }
+
+    public boolean isHasLactose() {
+        return hasLactose;
+    }
+
+    public void setHasLactose(boolean hasLactose) {
+        this.hasLactose = hasLactose;
+    }
+
     public String toCsv(){
         return super.toCsv() + hasLactose + "\r\n";
     }

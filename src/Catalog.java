@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Catalog {
     private List<Athlete> athletes;
@@ -44,9 +45,10 @@ public class Catalog {
         }
     }
 
-    public void showDietPlans() {
-        for (DietPlan dietPlan : dietPlans) {
-            System.out.println(dietPlan);
+    public void showFoods() {
+        Food.printColumnHeaders();
+        for (Food food : foods) {
+            System.out.println(food);
         }
     }
 
@@ -56,10 +58,9 @@ public class Catalog {
         }
     }
 
-    public void showFoods() {
-        Food.printColumnHeaders();
-        for (Food food : foods) {
-            System.out.println(food);
+    public void showDietPlans() {
+        for (DietPlan dietPlan : dietPlans) {
+            System.out.println(dietPlan);
         }
     }
 
@@ -111,7 +112,7 @@ public class Catalog {
                     return;
 
                 case "2":
-                    //editFood(input);
+                    editFood(input);
                     return;
 
                 case "3":
@@ -152,14 +153,6 @@ public class Catalog {
             System.out.println("Error loading data/athletes.csv (" + e.getStackTrace() +
                     ")\n0 athletes loaded");
         }
-    }
-
-    public void readDietPlans() {
-
-    }
-
-    public void readMeals() {
-
     }
 
     public void readFoods(String foodType) {
@@ -237,9 +230,16 @@ public class Catalog {
         }
     }
 
+    public void readMeals() {
+
+    }
+
+    public void readDietPlans() {
+
+    }
+
     //add to lists
     public void addAthlete(Scanner input) {
-        input.useDelimiter(",|\n");
         System.out.println("Enter athlete name");
         String name = input.next();
 
@@ -265,7 +265,6 @@ public class Catalog {
     }
 
     public void addFood(Scanner input) {
-        input.useDelimiter(",|\n");
         System.out.println("Enter food type (diary, beverages, cereals, vegetables, meats, fish, other)");
         String foodType = input.next();
 
@@ -405,6 +404,157 @@ public class Catalog {
             }
         } else {
             System.out.println("Athlete not found");
+            athleteMenu(input);
+        }
+    }
+
+    public void editFood(Scanner input) {
+        System.out.println("Enter food name");
+        String name = input.next();
+
+        int foodID = -1;
+        int i = 0;
+        for (Food food : foods) {
+            if (food.getName().equals(name)) {
+                foodID = i;
+            }
+            i++;
+        }
+
+        if (foodID >= 0) {
+            Food.printColumnHeaders();
+            System.out.println(foods.get(foodID));
+
+            System.out.println("Enter attribute to edit as specified by the column header."
+                    + "\nType \"Extra\" to edit the extra attributes not shown in the table."
+                    + "\nType \"Servings\" to edit the serving sizes.");
+
+            String selection = input.next();
+            boolean edited = false;
+
+            switch (selection) {
+                case "Name":
+                    System.out.println("Enter new name");
+                    foods.get(foodID).setName(input.next());
+                    edited = true;
+                    break;
+                case "Cals":
+                    System.out.println("Enter new calories per 100g");
+                    foods.get(foodID).getMacros().setCalories(input.nextDouble());
+                    edited = true;
+                    break;
+                case "Carbs":
+                    System.out.println("Enter new carbohydrates per 100g");
+                    foods.get(foodID).getMacros().setCarbs(input.nextDouble());
+                    edited = true;
+                    break;
+                case "Fats":
+                    System.out.println("Enter new fats per 100g");
+                    foods.get(foodID).getMacros().setFats(input.nextDouble());
+                    edited = true;
+                    break;
+                case "Proteins":
+                    System.out.println("Enter new proteins per 100g");
+                    foods.get(foodID).getMacros().setProteins(input.nextDouble());
+                    edited = true;
+                    break;
+                case "Extra":
+                    boolean hasProperty;
+                    switch (foods.get(foodID).getType()) {
+                        case "diary":
+                            System.out.println("Current lactose value: " + ((Diary) foods.get(foodID)).isHasLactose());
+                            System.out.println("Does it have lactose (Y/N)?");
+                            hasProperty = input.next().equalsIgnoreCase("y");
+                            ((Diary) foods.get(foodID)).setHasLactose(hasProperty);
+                            System.out.println("Lactose updated with: " + hasProperty);
+                            return;
+                        case "beverages":
+                            System.out.println("Current lactose value: " + ((Beverage) foods.get(foodID)).isHasLactose());
+                            System.out.println("Does it have lactose (Y/N)?");
+                            hasProperty = input.next().equalsIgnoreCase("y");
+                            ((Beverage) foods.get(foodID)).setHasLactose(hasProperty);
+                            System.out.println("Lactose updated with: " + hasProperty);
+
+                            System.out.println("Current caffeine value: " + ((Beverage) foods.get(foodID)).getCaffeine());
+                            System.out.println("Enter new caffeine per 100g (int only)");
+                            ((Beverage) foods.get(foodID)).setCaffeine(input.nextInt());
+                            System.out.println("Caffeine updated with: " + ((Beverage) foods.get(foodID)).getCaffeine());
+                            return;
+                        case "cereals":
+                            System.out.println("Current gluten value: " + ((Cereal) foods.get(foodID)).isHasGluten());
+                            System.out.println("Does it have gluten (Y/N)?");
+                            hasProperty = input.next().equalsIgnoreCase("y");
+                            ((Cereal) foods.get(foodID)).setHasGluten(hasProperty);
+                            System.out.println("Gluten updated with: " + hasProperty);
+                            return;
+                        case "meats":
+                            System.out.println("Current life quality value: " + ((Meat) foods.get(foodID)).getLifeQuality());
+                            System.out.println("Enter new life quality value 1-3 (worst to best)");
+                            ((Meat) foods.get(foodID)).setLifeQuality(input.nextInt());
+                            System.out.println("Life quality updated with: " + ((Meat) foods.get(foodID)).getLifeQuality());
+                            return;
+                        case "fish":
+                            System.out.println("Current MSC label value: " + ((Fish) foods.get(foodID)).isSustainable());
+                            System.out.println("Does it have the MSC label(Y/N)?");
+                            hasProperty = input.next().equalsIgnoreCase("y");
+                            ((Fish) foods.get(foodID)).setSustainable(hasProperty);
+                            System.out.println("MSC label updated with: " + hasProperty);
+                            return;
+                        case "vegetables":
+                            System.out.println("Enter Y/N for each month from January to December to confirm the harvesting of the fruit/vegetable");
+
+                            Vegetable v = ((Vegetable) foods.get(foodID));
+
+                            System.out.println("Current seasonality: " + v.displaySeasons());
+                            System.out.println("Give a space separated of the 3 letter month code in which the food is on season");
+                            String monthList = input.next();
+
+                            v.setJan((monthList.contains("jan")));
+                            v.setFeb((monthList.contains("feb")));
+                            v.setMar((monthList.contains("mar")));
+                            v.setApr((monthList.contains("apr")));
+                            v.setMay((monthList.contains("may")));
+                            v.setJun((monthList.contains("jun")));
+                            v.setJul((monthList.contains("jul")));
+                            v.setAug((monthList.contains("aug")));
+                            v.setSep((monthList.contains("sep")));
+                            v.setOct((monthList.contains("oct")));
+                            v.setNov((monthList.contains("nov")));
+                            v.setDec((monthList.contains("dec")));
+
+                            System.out.println("Updated seasonality: " + v.displaySeasons());
+                            return;
+                        case "other":
+                            System.out.println("There are no extra properties to edit");
+                            return;
+                    }
+                case "Servings":
+                    System.out.println("Current serving sizes:");
+                    foods.get(foodID).getServings().stream().forEach(System.out::println);
+                    System.out.println("Follow the string syntax and add/edit/remove servings at your will.");
+                    System.out.println("The current string is: " +
+                            foods.get(foodID).getServings()
+                                    .stream().map(Serving::toCSV)
+                                    .collect(Collectors.joining(";"))
+                    );
+                    String servings = input.next();
+                    foods.get(foodID).setServings(getServings(servings));
+                    System.out.println("Updated serving sizes with:");
+                    foods.get(foodID).getServings().stream().forEach(System.out::println);
+                    break;
+                default:
+                    System.out.println("Attribute not fond");
+            }
+
+            if (edited) {
+                System.out.println("Food data updated:");
+                Food.printColumnHeaders();
+                System.out.println(foods.get(foodID));
+            }
+
+        } else {
+            System.out.println("Food not found");
+            foodMenu(input);
         }
     }
 

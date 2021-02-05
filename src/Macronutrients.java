@@ -22,7 +22,7 @@ public class Macronutrients {
         return calories;
     }
 
-    public void setCalories(int calories) {
+    public void setCalories(double calories) {
         this.calories = calories;
     }
 
@@ -30,7 +30,7 @@ public class Macronutrients {
         return carbs;
     }
 
-    public void setCarbs(int carbs) {
+    public void setCarbs(double carbs) {
         this.carbs = carbs;
     }
 
@@ -38,7 +38,7 @@ public class Macronutrients {
         return fats;
     }
 
-    public void setFats(int fats) {
+    public void setFats(double fats) {
         this.fats = fats;
     }
 
@@ -46,7 +46,7 @@ public class Macronutrients {
         return proteins;
     }
 
-    public void setProteins(int proteins) {
+    public void setProteins(double proteins) {
         this.proteins = proteins;
     }
 

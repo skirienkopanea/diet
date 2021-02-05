@@ -17,6 +17,7 @@ public class Main {
         catalog.readDietPlans();
 
         Scanner input = new Scanner(System.in);
+        input.useDelimiter(",|\n");
         String choice;
         do {
             printMainMenu();

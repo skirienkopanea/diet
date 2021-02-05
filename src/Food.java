@@ -13,6 +13,8 @@ public abstract class Food {
         this.servings = servings;
     }
 
+    public abstract String getType(); //enforce implementation at child level
+
     public String getName() {
         return name;
     }

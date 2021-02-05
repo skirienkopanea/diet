@@ -30,6 +30,108 @@ public class Vegetable extends Food {
         this.dec = dec;
     }
 
+    @Override
+    public String getType() {
+        return "vegetables";
+    }
+
+
+    public boolean isJan() {
+        return jan;
+    }
+
+    public void setJan(boolean jan) {
+        this.jan = jan;
+    }
+
+    public boolean isFeb() {
+        return feb;
+    }
+
+    public void setFeb(boolean feb) {
+        this.feb = feb;
+    }
+
+    public boolean isMar() {
+        return mar;
+    }
+
+    public void setMar(boolean mar) {
+        this.mar = mar;
+    }
+
+    public boolean isApr() {
+        return apr;
+    }
+
+    public void setApr(boolean apr) {
+        this.apr = apr;
+    }
+
+    public boolean isMay() {
+        return may;
+    }
+
+    public void setMay(boolean may) {
+        this.may = may;
+    }
+
+    public boolean isJun() {
+        return jun;
+    }
+
+    public void setJun(boolean jun) {
+        this.jun = jun;
+    }
+
+    public boolean isJul() {
+        return jul;
+    }
+
+    public void setJul(boolean jul) {
+        this.jul = jul;
+    }
+
+    public boolean isAug() {
+        return aug;
+    }
+
+    public void setAug(boolean aug) {
+        this.aug = aug;
+    }
+
+    public boolean isSep() {
+        return sep;
+    }
+
+    public void setSep(boolean sep) {
+        this.sep = sep;
+    }
+
+    public boolean isOct() {
+        return oct;
+    }
+
+    public void setOct(boolean oct) {
+        this.oct = oct;
+    }
+
+    public boolean isNov() {
+        return nov;
+    }
+
+    public void setNov(boolean nov) {
+        this.nov = nov;
+    }
+
+    public boolean isDec() {
+        return dec;
+    }
+
+    public void setDec(boolean dec) {
+        this.dec = dec;
+    }
+
     public String toCsv() {
         return super.toCsv()
                 + jan + ","
@@ -45,5 +147,22 @@ public class Vegetable extends Food {
                 + nov + ","
                 + dec + ","
                 + "\r\n";
+    }
+
+    public String displaySeasons() {
+        String displaySeasons = ""
+                + (isJan()? "jan, " : "")
+                + (isFeb()? "feb, " : "")
+                + (isMar()? "mar, " : "")
+                + (isApr()? "apr, " : "")
+                + (isMay()? "may, " : "")
+                + (isJun()? "jun, " : "")
+                + (isJul()? "jul, " : "")
+                + (isAug()? "aug, " : "")
+                + (isSep()? "sep, " : "")
+                + (isOct()? "oct, " : "")
+                + (isNov()? "nov, " : "")
+                + (isDec()? "dec, " : "");
+        return displaySeasons.substring(0,displaySeasons.length()-2);
     }
 }
