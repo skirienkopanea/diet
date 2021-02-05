@@ -98,6 +98,8 @@ The methods not mentioned in the readme are mostly getters, setters, to string, 
 
 ## Improvement points
 * Add JUnit tests for each class
+* Refractor the classes in different packages (folders) and set up the correct access control rules (declare and import packages in classes, declare access modifiers in methods)
+   * i.e package for Main+Catalog+Athletes, package for Food, package for JUnit tests
 * Implement meals and diet plans
 * Implement scanner input validation for wrong data types.
 * Accuracy of seasonal data and other optional attributes (i.e. gluten, msc...) (Disclaimer: data beyond the macronutrients is not reliable!).
