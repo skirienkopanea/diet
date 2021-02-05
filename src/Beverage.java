@@ -11,8 +11,12 @@ public class Beverage extends Food {
     }
 
     @Override
-    public String getType() {
-        return "beverages";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.BEVERAGES;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + ",lactose,caffeine\r\n";
     }
 
     public boolean isHasLactose() {
@@ -32,6 +36,6 @@ public class Beverage extends Food {
     }
 
     public String toCsv() {
-        return super.toCsv() + hasLactose + "," + caffeine + "\r\n";
+        return super.toCsv() + "," + hasLactose + "," + caffeine + "\r\n";
     }
 }

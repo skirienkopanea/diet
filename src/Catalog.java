@@ -503,15 +503,15 @@ public class Catalog {
                     break;
                 case "Extra":
                     boolean hasProperty;
-                    switch (foods.get(foodID).getType()) {
-                        case "diary":
+                    switch (foods.get(foodID).getEnum()) {
+                        case DIARY:
                             System.out.println("Current lactose value: " + ((Diary) foods.get(foodID)).isHasLactose());
                             System.out.println("Does it have lactose (Y/N)?");
                             hasProperty = input.next().equalsIgnoreCase("y");
                             ((Diary) foods.get(foodID)).setHasLactose(hasProperty);
                             System.out.println("Lactose updated with: " + hasProperty);
                             return;
-                        case "beverages":
+                        case BEVERAGES:
                             System.out.println("Current lactose value: " + ((Beverage) foods.get(foodID)).isHasLactose());
                             System.out.println("Does it have lactose (Y/N)?");
                             hasProperty = input.next().equalsIgnoreCase("y");
@@ -523,27 +523,27 @@ public class Catalog {
                             ((Beverage) foods.get(foodID)).setCaffeine(input.nextInt());
                             System.out.println("Caffeine updated with: " + ((Beverage) foods.get(foodID)).getCaffeine());
                             return;
-                        case "cereals":
+                        case CEREALS:
                             System.out.println("Current gluten value: " + ((Cereal) foods.get(foodID)).isHasGluten());
                             System.out.println("Does it have gluten (Y/N)?");
                             hasProperty = input.next().equalsIgnoreCase("y");
                             ((Cereal) foods.get(foodID)).setHasGluten(hasProperty);
                             System.out.println("Gluten updated with: " + hasProperty);
                             return;
-                        case "meats":
+                        case MEATS:
                             System.out.println("Current life quality value: " + ((Meat) foods.get(foodID)).getLifeQuality());
                             System.out.println("Enter new life quality value 1-3 (worst to best)");
                             ((Meat) foods.get(foodID)).setLifeQuality(input.nextInt());
                             System.out.println("Life quality updated with: " + ((Meat) foods.get(foodID)).getLifeQuality());
                             return;
-                        case "fish":
+                        case FISH:
                             System.out.println("Current MSC label value: " + ((Fish) foods.get(foodID)).isSustainable());
                             System.out.println("Does it have the MSC label(Y/N)?");
                             hasProperty = input.next().equalsIgnoreCase("y");
                             ((Fish) foods.get(foodID)).setSustainable(hasProperty);
                             System.out.println("MSC label updated with: " + hasProperty);
                             return;
-                        case "vegetables":
+                        case VEGETABLES:
                             System.out.println("Enter Y/N for each month from January to December to confirm the harvesting of the fruit/vegetable");
 
                             Vegetable v = ((Vegetable) foods.get(foodID));
@@ -567,7 +567,7 @@ public class Catalog {
 
                             System.out.println("Updated seasonality: " + v.displaySeasons());
                             return;
-                        case "other":
+                        case OTHER:
                             System.out.println("There are no extra properties to edit");
                             return;
                     }
@@ -659,34 +659,70 @@ public class Catalog {
     //write to files
     public boolean writeAthletes(Scanner input) {
         try {
-            PrintWriter writer = new PrintWriter("src/athletes.csv");
+            PrintWriter writer = new PrintWriter("src/data/athletes.csv");
             StringBuilder file = new StringBuilder("name,age,sex,weight,activity,calories\r\n");
             athletes.stream().forEach(athlete -> file.append(athlete.toCsv()));
             writer.print(file);
             writer.close();
+            System.out.println("athletes.csv saved");
             return true;
         } catch (FileNotFoundException e) {
-            System.out.println("Oops... athletes file could not be saved. Close other applications using athletes.csv.");
+            System.out.println("Oops... athletes file could not be saved. " + e.getMessage());
             System.out.println("Do you want to exit without saving changes (Y/N)?");
             return input.next().equalsIgnoreCase("Y");
         }
     }
-
     public boolean writeFoods(Scanner input) {
-
-
-        try {
-            PrintWriter writer = new PrintWriter("src/athletes.csv");
-            StringBuilder file = new StringBuilder("name,age,sex,weight,activity,calories\r\n");
-            athletes.stream().forEach(athlete -> file.append(athlete.toCsv()));
-            writer.print(file);
-            writer.close();
-            return true;
-        } catch (FileNotFoundException e) {
-            System.out.println("Oops... athletes file could not be saved. Close other applications using athletes.csv.");
-            System.out.println("Do you want to exit without saving changes (Y/N)?");
-            return input.next().equalsIgnoreCase("Y");
+        String fileName;
+        String headers;
+        for (FoodType foodType : foodTypes) {
+            switch (foodType) {
+                case BEVERAGES:
+                    fileName = "beverages.csv";
+                    headers = Beverage.getCSVHeaders();
+                    break;
+                case CEREALS:
+                    fileName = "cereals.csv"; //includes nuts
+                    headers = Cereal.getCSVHeaders();
+                    break;
+                case DIARY:
+                    fileName = "diary.csv";
+                    headers = Diary.getCSVHeaders();
+                    break;
+                case FISH:
+                    fileName = "fish.csv";
+                    headers = Fish.getCSVHeaders();
+                    break;
+                case MEATS:
+                    fileName = "meats.csv"; //includes eggs
+                    headers = Meat.getCSVHeaders();
+                    break;
+                case VEGETABLES:
+                    fileName = "vegetables.csv"; //includes fruits
+                    headers = Vegetable.getCSVHeaders();
+                    break;
+                default:
+                    fileName = "other.csv";
+                    headers = MiscFood.getCSVHeaders();
+            }
+            try {
+                PrintWriter writer = new PrintWriter("src/data/" + fileName);
+                StringBuilder fileText = new StringBuilder(headers);
+                foods.stream().filter(food -> food.getEnum() == foodType)
+                        .forEach(food -> fileText.append(food.toCsv()));
+                writer.print(fileText);
+                writer.close();
+                System.out.println(fileName + " saved");
+            } catch (FileNotFoundException e) {
+                System.out.println("Oops... food file could not be saved. " + e.getMessage());
+                System.out.println("Do you want to exit without saving " + fileName + " (Y/N)?");
+                boolean close = input.next().equalsIgnoreCase("Y");
+                if (!close){
+                    return false;
+                }
+            }
         }
+        return true;
     }
 
 

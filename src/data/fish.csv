@@ -1,14 +1,14 @@
-﻿name,cals,carbs,fats,proteins,servings,msc
-cod,82,0,1,18,100g&100;1g&1,FALSE
-crab,86,0.74,1,17,100g&100;1g&1,FALSE
-haddock,74,0,0,16,100g&100;1g&1,FALSE
-herring,262,9.64,18,14,100g&100;1g&1,FALSE
-mackarel,205,0,14,19,100g&100;1g&1,FALSE
-mussels,86,3.69,2,12,100g&100;1g&1,FALSE
-oysters,59,5.53,2,5,100g&100;1g&1,FALSE
-salmon,117,0,4.32,18.28,100g&100;1g&1,FALSE
-canned sardines,208,0,11,25,100g&100;1g&1,FALSE
-shrimp,85,0,1,20,100g&100;1g&1,FALSE
-swordfish,144,0,7,20,100g&100;1g&1,FALSE
-trout,141,0,6,20,100g&100;1g&1,FALSE
-canned tuna,198,0,8,29,100g&100;1g&1,FALSE
+name,cals,carbs,fats,proteins,servings,msc
+cod,82.0,0.0,1.0,18.0,100g&100;1g&1,false
+crab,86.0,0.74,1.0,17.0,100g&100;1g&1,false
+haddock,74.0,0.0,0.0,16.0,100g&100;1g&1,false
+herring,262.0,9.64,18.0,14.0,100g&100;1g&1,false
+mackarel,205.0,0.0,14.0,19.0,100g&100;1g&1,true
+mussels,86.0,3.69,2.0,12.0,100g&100;1g&1,false
+oysters,59.0,5.53,2.0,5.0,100g&100;1g&1,false
+salmon,117.0,0.0,4.32,18.28,100g&100;1g&1,true
+canned sardines,208.0,0.0,11.0,25.0,100g&100;1g&1,false
+shrimp,85.0,0.0,1.0,20.0,100g&100;1g&1,false
+swordfish,144.0,0.0,7.0,20.0,100g&100;1g&1,false
+trout,141.0,0.0,6.0,20.0,100g&100;1g&1,false
+canned tuna,198.0,0.0,8.0,29.0,100g&100;1g&1,true

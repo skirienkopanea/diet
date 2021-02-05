@@ -93,10 +93,13 @@ Also contains:
 Does not contain extra fields but allows you to initialise a new food object.
 
 The methods not mentioned in the readme are mostly getters, setters, to string, to csv, totals calculations, input validations, command line menus and operations. Needless to say, class attributes are private and the methods public (some are static, which regard the whole class rather than a specific object).
-* Aso of the latest release, the app allows you to see, add, edit and remove athletes from a csv file.
-* Same operations for diet plans, meals, and foods.
+* The terminal only accepts ASCII characters.
+* As of the latest release, the app allows you to see, add, edit and remove athletes from a csv file.
+* Same operations for foods
+* *to do: diet plans, meals*
 
 ## Improvement points
+* Implement meals and diet plans
 * Implement scanner input validation for wrong data types.
 * Change foodType strings for enums.
 * Accuracy of seasonal data and other optional attributes (i.e. gluten, msc...) (Disclaimer: data beyond the macronutrients is not reliable!).
@@ -104,4 +107,5 @@ The methods not mentioned in the readme are mostly getters, setters, to string, 
 * Implement intake calculator.
 * Make a GUI.
 * Replace csv files for a database (preferably a free third party database).
+    * Use proper IDs instead of names as ID.
 * Implement linear optimizations (perhaps in Python?).

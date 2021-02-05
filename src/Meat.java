@@ -9,8 +9,12 @@ public class Meat extends Food{
     }
 
     @Override
-    public String getType() {
-        return "meats";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.MEATS;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + ",life quality\r\n";
     }
 
     public int getLifeQuality() {
@@ -22,6 +26,6 @@ public class Meat extends Food{
     }
 
     public String toCsv(){
-        return super.toCsv() + lifeQuality + "\r\n";
+        return super.toCsv() + "," + lifeQuality + "\r\n";
     }
 }

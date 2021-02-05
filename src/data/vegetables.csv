@@ -1,55 +1,55 @@
-﻿name,cals,carbs,fats,proteins,servings,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec
-apple,52,13.81,0.17,0.26,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
-apricots,48,11.12,0.39,1.4,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-avocados,160,8.53,14.66,2,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,FALSE,FALSE
-banana,89,22.84,0.33,1.09,100g&100;1g&1,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE
-blueberries,57,14.49,0.33,0.74,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE,FALSE,FALSE,FALSE
-cantalupe,34,8.16,0.19,0.84,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-cranberries,46,11.97,0.13,0.46,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-figs,74,19.18,0.3,0.75,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-grapes,69,18.1,0.16,0.72,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-kiwi,61,14.66,0.52,1.14,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-mandarin oranges,53,13.34,0.31,0.81,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-mango,60,14.98,0.38,0.82,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-melons,36,9.09,0.14,0.54,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-olives,145,3.84,15.32,1.03,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-orange juice,45,10.4,0.2,0.7,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-papaya,43,10.82,0.26,0.47,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-peach,39,9.54,0.25,0.91,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-pear,57,15.23,0.14,0.36,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-persimmons,127,33.5,0.4,0.8,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-pineapple,50,13.12,0.12,0.54,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-pomegranates,83,18.7,1.17,1.67,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-raspberries,52,11.94,0.65,1.2,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-squash,17,3.11,0.32,1.21,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-strawberries,32,7.68,0.3,0.67,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-tomato,18,3.89,0.2,0.88,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-watermelon,30,7.55,0.15,0.61,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-asparagus,20,3.88,0.12,2.2,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-beets,43,9.56,0.17,1.61,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-bell pepper,26,6.03,0.3,0.99,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-broccoli,34,6.64,0.37,2.82,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-brussels sprouts,43,8.95,0.3,3.38,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-red cabbage,31,7.37,0.16,1.43,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-carrot,41,9.58,0.24,0.93,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-cauliflower,25,4.97,0.28,1.92,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-celery,14,2.97,0.17,0.69,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-collards,32,5.42,0.61,3.02,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-corn,86,18.7,1.35,3.27,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-cucumber,15,3.63,0.11,0.65,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-edamame,109,7.61,4.73,11.22,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-garlic,149,33.06,0.5,6.36,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-green beans,31,6.97,0.22,1.83,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-iceberg lettuce,14,2.97,0.14,0.9,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-kale,35,4.42,1.49,2.92,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-lettuce,15,2.87,0.15,1.36,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-mushrooms,22,3.26,0.34,3.09,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-mustard greens,27,4.67,0.42,2.86,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-okra,33,7.45,0.19,1.93,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-onion,40,9.34,0.1,1.1,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-potatoes,77,17.49,0.09,2.05,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-pumpkin,26,6.5,0.1,1,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-seaweed,45,9.14,0.64,3.03,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-spinach,23,3.63,0.39,2.86,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-sweet potato,86,20.12,0.05,1.57,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
-turnip greens,32,7.13,0.3,1.5,100g&100;1g&1,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+name,cals,carbs,fats,proteins,servings,jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec
+apple,52.0,13.81,0.17,0.26,100g&100;1g&1,false,false,false,false,false,false,false,true,true,true,false,false
+apricots,48.0,11.12,0.39,1.4,100g&100;1g&1,false,false,false,false,true,true,false,false,false,false,false,false
+avocados,160.0,8.53,14.66,2.0,100g&100;1g&1,false,false,false,false,false,false,false,true,true,true,false,false
+banana,89.0,22.84,0.33,1.09,100g&100;1g&1,true,true,true,true,true,true,true,true,true,true,true,true
+blueberries,57.0,14.49,0.33,0.74,100g&100;1g&1,false,false,false,false,true,true,true,true,true,false,false,false
+cantalupe,34.0,8.16,0.19,0.84,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+cranberries,46.0,11.97,0.13,0.46,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+figs,74.0,19.18,0.3,0.75,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+grapes,69.0,18.1,0.16,0.72,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+kiwi,61.0,14.66,0.52,1.14,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+mandarin oranges,53.0,13.34,0.31,0.81,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+mango,60.0,14.98,0.38,0.82,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+melons,36.0,9.09,0.14,0.54,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+olives,145.0,3.84,15.32,1.03,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+orange juice,45.0,10.4,0.2,0.7,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+papaya,43.0,10.82,0.26,0.47,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+peach,39.0,9.54,0.25,0.91,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+pear,57.0,15.23,0.14,0.36,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+persimmons,127.0,33.5,0.4,0.8,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+pineapple,50.0,13.12,0.12,0.54,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+pomegranates,83.0,18.7,1.17,1.67,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+raspberries,52.0,11.94,0.65,1.2,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+squash,17.0,3.11,0.32,1.21,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+strawberries,32.0,7.68,0.3,0.67,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+tomato,18.0,3.89,0.2,0.88,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+watermelon,30.0,7.55,0.15,0.61,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+asparagus,20.0,3.88,0.12,2.2,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+beets,43.0,9.56,0.17,1.61,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+bell pepper,26.0,6.03,0.3,0.99,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+broccoli,34.0,6.64,0.37,2.82,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+brussels sprouts,43.0,8.95,0.3,3.38,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+red cabbage,31.0,7.37,0.16,1.43,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+carrot,41.0,9.58,0.24,0.93,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+cauliflower,25.0,4.97,0.28,1.92,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+celery,14.0,2.97,0.17,0.69,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+collards,32.0,5.42,0.61,3.02,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+corn,86.0,18.7,1.35,3.27,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+cucumber,15.0,3.63,0.11,0.65,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+edamame,109.0,7.61,4.73,11.22,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+garlic,149.0,33.06,0.5,6.36,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+green beans,31.0,6.97,0.22,1.83,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+iceberg lettuce,14.0,2.97,0.14,0.9,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+kale,35.0,4.42,1.49,2.92,100g&100;1g&1,true,true,true,true,false,false,false,true,true,false,true,true
+lettuce,15.0,2.87,0.15,1.36,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+mushrooms,22.0,3.26,0.34,3.09,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+mustard greens,27.0,4.67,0.42,2.86,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+okra,33.0,7.45,0.19,1.93,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+onion,40.0,9.34,0.1,1.1,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+potatoes,77.0,17.49,0.09,2.05,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+pumpkin,26.0,6.5,0.1,1.0,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+seaweed,45.0,9.14,0.64,3.03,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+spinach,23.0,3.63,0.39,2.86,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+sweet potato,86.0,20.12,0.05,1.57,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false
+turnip greens,32.0,7.13,0.3,1.5,100g&100;1g&1,false,false,false,false,false,false,false,false,false,false,false,false

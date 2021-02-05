@@ -13,7 +13,11 @@ public abstract class Food {
         this.servings = servings;
     }
 
-    public abstract String getType(); //enforce implementation at child level
+    public abstract Catalog.FoodType getEnum(); //enforce implementation at child level
+
+    public static String getCSVHeaders(){
+        return "name,cals,carbs,fats,proteins,servings";
+    };
 
     public String getName() {
         return name;

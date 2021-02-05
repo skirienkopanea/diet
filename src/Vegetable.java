@@ -31,8 +31,12 @@ public class Vegetable extends Food {
     }
 
     @Override
-    public String getType() {
-        return "vegetables";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.VEGETABLES;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + ",jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec\r\n";
     }
 
 
@@ -133,7 +137,7 @@ public class Vegetable extends Food {
     }
 
     public String toCsv() {
-        return super.toCsv()
+        return super.toCsv() + ","
                 + jan + ","
                 + feb + ","
                 + mar + ","
@@ -145,12 +149,11 @@ public class Vegetable extends Food {
                 + sep + ","
                 + oct + ","
                 + nov + ","
-                + dec + ","
-                + "\r\n";
+                + dec + "\r\n";
     }
 
     public String displaySeasons() {
-        String displaySeasons = ""
+        String displaySeasons = "   "
                 + (isJan()? "jan, " : "")
                 + (isFeb()? "feb, " : "")
                 + (isMar()? "mar, " : "")

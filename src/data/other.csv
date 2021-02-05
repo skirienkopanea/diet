@@ -1,4 +1,4 @@
-﻿name,cals,carbs,fats,proteins,servings
-chocolate,546,61,31,5,100g&100;1g&1
-olive oil,884,0,100,0,100g&100;1g&1
-salt,0,0,0,0,100g&100;1g&1
+name,cals,carbs,fats,proteins,servings
+chocolate,546.0,61.0,31.0,5.0,100g&100;1g&1
+olive oil,884.0,0.0,100.0,0.0,100g&100;1g&1;1 tea spoon&5
+salt,0.0,0.0,0.0,0.0,100g&100;1g&1

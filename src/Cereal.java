@@ -9,8 +9,12 @@ public class Cereal extends Food{
     }
 
     @Override
-    public String getType() {
-        return "cereals";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.CEREALS;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + ",gluten\r\n";
     }
 
     public boolean isHasGluten() {
@@ -22,6 +26,6 @@ public class Cereal extends Food{
     }
 
     public String toCsv(){
-        return super.toCsv() + hasGluten + "\r\n";
+        return super.toCsv() + "," + hasGluten + "\r\n";
     }
 }

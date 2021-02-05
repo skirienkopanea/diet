@@ -9,8 +9,12 @@ public class Fish extends Food{
     }
 
     @Override
-    public String getType() {
-        return "fish";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.FISH;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + ",msc\r\n";
     }
 
     public boolean isSustainable() {
@@ -22,6 +26,6 @@ public class Fish extends Food{
     }
 
     public String toCsv(){
-        return super.toCsv() + isSustainable + "\r\n";
+        return super.toCsv() + "," + isSustainable + "\r\n";
     }
 }

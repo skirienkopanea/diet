@@ -7,8 +7,12 @@ public class MiscFood extends Food{
     }
 
     @Override
-    public String getType() {
-        return "other";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.OTHER;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + "\r\n";
     }
 
     public String toCsv(){

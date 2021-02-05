@@ -9,8 +9,12 @@ public class Diary extends Food{
     }
 
     @Override
-    public String getType() {
-        return "diary";
+    public Catalog.FoodType getEnum() {
+        return Catalog.FoodType.DIARY;
+    }
+
+    public static String getCSVHeaders() {
+        return Food.getCSVHeaders() + ",lactose\r\n";
     }
 
     public boolean isHasLactose() {
@@ -22,6 +26,6 @@ public class Diary extends Food{
     }
 
     public String toCsv(){
-        return super.toCsv() + hasLactose + "\r\n";
+        return super.toCsv() + "," + hasLactose + "\r\n";
     }
 }
