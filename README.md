@@ -99,6 +99,7 @@ The methods not mentioned in the readme are mostly getters, setters, to string, 
 * *to do: diet plans, meals*
 
 ## Improvement points
+* Add JUnit tests for each class
 * Implement meals and diet plans
 * Implement scanner input validation for wrong data types.
 * Accuracy of seasonal data and other optional attributes (i.e. gluten, msc...) (Disclaimer: data beyond the macronutrients is not reliable!).
