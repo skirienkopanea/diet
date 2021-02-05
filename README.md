@@ -63,7 +63,7 @@ A food object contains:
 
 ### Macro/Micro nutrients
 
-Macro and micro nutrients are -nested? (forgot the specific term)- classes, like using a Date class to store days,
+Macro and micro nutrients are -nested? (like a container)- classes, like using a Date class to store days,
 months, years. I make use of a macro and micro class to avoid duplication and not define protiens, fats, carbs, etc. in
 the classes "Food", "Meal", "DietPlan", etc. Respectively, they have the private attributes for the macro and
 micro nutrients (limited to just the ones available in 'my fitness pal' food database). Sample food data is taken either
