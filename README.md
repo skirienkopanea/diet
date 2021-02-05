@@ -102,7 +102,7 @@ The methods not mentioned in the readme are mostly getters, setters, to string, 
    * i.e package for Main+Catalog+Athletes, package for Food, package for JUnit tests
 * Implement meals and diet plans
 * Implement scanner input validation for wrong data types.
-  * i.e. by catching scanner exceptions and/or by further throwing and catching exceptions/errors when preconditions for the methods are not met.
+  * i.e. by catching scanner exceptions and/or by further throwing and catching exceptions when preconditions for the methods are not met.
 * Accuracy of seasonal data and other optional attributes (i.e. gluten, msc...) (Disclaimer: data beyond the macronutrients is not reliable!).
 * Implement micronutrients.
 * Implement intake calculator.
